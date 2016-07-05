@@ -5,7 +5,7 @@
 <html>
 <%@include file="/WEB-INF/views/include.jsp"%>
 <head>
-	<title>Home</title>
+	<title>汪汪学测试</title>
 </head>
 <body>
 <h1>
