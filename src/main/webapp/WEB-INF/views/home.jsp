@@ -20,17 +20,17 @@
 
 <ul>
 <li><a href="department/get">获取所有部门</a>
-	<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#departmentModal">部门表</button>
+	<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#departmentModal" onclick="getD();">部门表</button>
 </li>
 <li><a href="employer/get">获取所有雇员</a>
-	<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#employerModal">雇员表</button>
+	<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#employerModal" onclick="getE();">雇员表</button>
 </li>
 <li><a href="employerinfo/get">获取所有雇员信息</a>
-	<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#employerinfoModal">雇员信息表</button>
+	<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#employerinfoModal" onclick="getEI();">雇员信息表</button>
 </li>
 </ul>
 
-<div class="modal fade" id="departmentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="departmentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -122,13 +122,14 @@ function getD(){
          url:'department/get',  
          dataType:'json',  
          success:function(data){ 
+        	 $('#departmenttable').html('');
         	 for(i in data){
         		 $('#departmenttable').append('<tr><td>'+data[i].id+'</td><td>'+data[i].dname+'</td></tr>');
         	 }
          }  
      });  
 }
-getD();
+
 
 function getE(){
 	$.ajax({  
@@ -136,6 +137,7 @@ function getE(){
          url:'employer/get',  
          dataType:'json',  
          success:function(data){ 
+        	 $('#employertable').html('');
         	 for(i in data){
         		 $('#employertable').append('<tr>'
         				 +'<td>'+data[i].id+'</td>'
@@ -150,7 +152,7 @@ function getE(){
          }  
      });  
 }
-getE();
+
 
 function getEI(){
 	$.ajax({  
@@ -158,6 +160,7 @@ function getEI(){
          url:'employerinfo/get',  
          dataType:'json',  
          success:function(data){ 
+        	 $('#employerinfotable').html('');
         	 for(i in data){
         		 $('#employerinfotable').append('<tr>'
         				 +'<td>'+data[i].id+'</td>'
@@ -170,7 +173,6 @@ function getEI(){
          }  
      });  
 }
-getEI();
 
 </script>
 
